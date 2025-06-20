@@ -57,11 +57,3 @@ Sumanth
 
 ---
 
-
-1. Go to frontend:
-   ```
-   cd job-portal-frontend
-   npm install
-   npm start
-   ```
-
