@@ -60,6 +60,7 @@ function Register() {
         <br />
         <select name="role" value={formData.role} onChange={handleChange}>
           <option value="CAN">Candidate</option>
+          <option value="EMP">Employer</option>
         </select>
         <br />
         <button type="submit">Register</button>

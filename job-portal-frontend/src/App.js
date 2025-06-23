@@ -8,6 +8,11 @@ import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import JobDetails from './pages/jobDetails';
 import MyApplications from './pages/MyApplication';
+import MyJobs from './pages/MyJobs';
+import AddJob from './components/Addjob';
+import EditJob from './pages/EditJob';
+import JobApplicants from './components/JobApplicants';
+
 
 
 function App() {
@@ -19,7 +24,11 @@ function App() {
 <Routes>
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
-  <Route path="/applications" element={<MyApplications />} />
+  <Route path="/my-applications" element={<MyApplications />} />
+  <Route path="/my-jobs" element={<MyJobs />} />
+  <Route path="/jobs/create" element={<AddJob />} />
+  <Route path="/jobs/edit/:id" element={<EditJob />} />
+  <Route path="/jobs/:jobId/applicants" element={<JobApplicants />} />
   <Route path="/dashboard" element={
     <PrivateRoute>
       <Dashboard />
