@@ -6,10 +6,11 @@ This repository contains both the frontend and backend for the Job Portal applic
 
 ## Project Overview
 
-A full-stack job portal web app with:
+A full-stack job portal web app where:
 
-- React frontend (user registration, job browsing, applying)
-- Django REST Framework backend (API, authentication, job management)
+- Candidates can register, browse jobs, and apply.
+- Employers can register (require admin verification), post jobs, and manage applicants.
+- Admin can approve/verify employers through Django Admin Panel.
 
 ---
 
@@ -38,16 +39,32 @@ A full-stack job portal web app with:
 - Django REST Framework, PostgreSQL (SQLite for dev)  
 - JWT Authentication  
 - Fetch API for HTTP requests
-
+- File upload (Resume handling)
 ---
+
+Features
+Candidate:
+ - Register & login as candidate
+ - View all jobs
+ - Apply to jobs with resume and cover letter
+ - View application status: pending, shortlisted, rejected
+
+Employer:
+ - Register & login as employer
+ - Must be verified by admin before posting jobs
+ - Post, edit, and delete jobs after verification
+ - View all applicants for their jobs
+ - Update status of applications (shortlist/reject)
+
+Admin:
+Can verify employers from Django admin panel
+
+
 
 ## Future Improvements
 
-- Employer verification workflow  
-- Employer job posting UI  
-- File upload validation  
-- Pagination and filtering on job listings  
-- Deployment instructions
+- Polish UI
+- Resume file protection
 
 ---
 
