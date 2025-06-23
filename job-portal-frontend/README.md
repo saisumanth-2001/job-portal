@@ -4,12 +4,17 @@ This is the React frontend for the Job Portal application.
 
 ## Features
 
-- User registration and login with JWT authentication
-- Browse and view job listings
-- Apply for jobs
-- User dashboard with trending jobs and images
-- Responsive design using Bootstrap
+- User Registration & Login (JWT Auth)
+- Role-based access: Candidate vs Employer
+- Apply to jobs with resume upload + cover letter
+- View your applications with live status (Pending / Shortlisted / Rejected)
+- Employer dashboard: Post jobs, edit, delete
+- Employer can view applicants and update their status
+- Job search & filters by type/location/remote
+- Protected routes and conditional navigation
+- Basic UI with Bootstrap (responsive)
 
+  
 ## Getting Started
 
 1. Clone the repo:
@@ -34,8 +39,6 @@ npm start
 
 ## Future Improvements
 
-- Add employer job posting UI
-- Improve forms with validation
 - Deployment instructions
 
 ---
