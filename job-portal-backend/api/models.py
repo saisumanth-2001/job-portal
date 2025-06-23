@@ -36,6 +36,7 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.CharField(max_length=3, choices=USER_ROLES, default='CAN')
+    is_verified = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user.username} ({self.role})"
