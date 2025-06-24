@@ -59,6 +59,33 @@ Employer:
 Admin:
 Can verify employers from Django admin panel
 
+##  Deployment Instructions (Render)
+
+This project is deployed using [Render](https://render.com/).
+
+### Requirements
+- Python 3.x
+- Django
+- Gunicorn
+- Whitenoise
+- dj-database-url
+
+### Deployment Steps:
+1. Push your code to GitHub.
+2. Create a new Web Service on [Render](https://dashboard.render.com/).
+3. Connect your GitHub repo.
+4. Set the following:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn backend.wsgi`
+   - **Root Directory**: `job-portal-backend` (if applicable)
+5. Set environment variables:
+   - `DJANGO_SECRET_KEY`
+   - `DEBUG=False`
+   - `DATABASE_URL` (optional, if using PostgreSQL)
+6. Click **Deploy Web Service**.
+
+### Live Link
+- [Live Project](https://your-render-url.com)
 
 
 ## Future Improvements
