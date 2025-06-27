@@ -22,6 +22,7 @@ function App() {
         <Navbar/>
       <div style={{ maxWidth: '1000px', margin: 'auto', padding: '20px' }}>
 <Routes>
+  <Route path="/" element={<Jobs />} />
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
   <Route path="/my-applications" element={<MyApplications />} />
