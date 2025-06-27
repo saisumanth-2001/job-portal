@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -20,7 +22,7 @@ const Jobs = () => {
       if (jobType) query.append('job_type', jobType);
       if (isRemote) query.append('is_remote', isRemote);
 
-      const response = await fetch(`http://localhost:8000/api/jobs/?${query.toString()}`);
+      const response = await fetch(`${API_URL}/jobs/?${query.toString()}`);
       if (!response.ok) throw new Error('Failed to fetch jobs');
       const data = await response.json();
       setJobs(data.results || []);

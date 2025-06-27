@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
+
+
 
 const EditJob = () => {
   const { id } = useParams();
@@ -11,7 +14,7 @@ const EditJob = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/api/jobs/${id}/`, {
+        const res = await fetch(`${API_URL}/jobs/${id}/`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Failed to fetch job');
@@ -33,7 +36,7 @@ const EditJob = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8000/api/jobs/${id}/`, {
+      const res = await fetch(`${API_URL}/jobs/${id}/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

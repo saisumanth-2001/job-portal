@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 const AddJob = () => {
   const [title, setTitle] = useState('');
@@ -24,7 +26,7 @@ const AddJob = () => {
     const jobData = { title, company, location, job_type: jobType, description, is_remote: isRemote };
 
     try {
-      const res = await fetch('http://localhost:8000/api/jobs/', {
+      const res = await fetch(`${API_URL}/jobs/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

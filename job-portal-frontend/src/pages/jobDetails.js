@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
 
 
 const JobDetails = () => {
@@ -14,7 +15,7 @@ const JobDetails = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/jobs/${id}/`, {
+        const response = await fetch(`${API_URL}/jobs/${id}/`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`
@@ -52,7 +53,7 @@ const JobDetails = () => {
     formData.append('cover_letter', coverLetter);
 
     try {
-      const response = await fetch(`http://localhost:8000/api/jobs/${id}/apply/`, {
+      const response = await fetch(`${API_URL}/jobs/${id}/apply/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`,

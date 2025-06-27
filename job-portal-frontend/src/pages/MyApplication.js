@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const MyApplications = () => {
   const [applications, setApplications] = useState([]);
@@ -8,7 +9,7 @@ const MyApplications = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/my-applications/', {
+        const response = await fetch(`${API_URL}/my-applications/`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
           }

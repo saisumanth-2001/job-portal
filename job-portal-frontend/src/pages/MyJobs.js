@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const MyJobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -12,7 +13,7 @@ const MyJobs = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/profile/', {
+      const res = await fetch(`${API_URL}/profile/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -28,7 +29,7 @@ const MyJobs = () => {
 
   const fetchMyJobs = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/jobs/?posted_by_me=true', {
+      const res = await fetch(`${API_URL}/jobs/?posted_by_me=true`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -61,7 +62,7 @@ const MyJobs = () => {
     if (!window.confirm('Are you sure you want to delete this job?')) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/api/jobs/${id}/`, {
+      const res = await fetch(`${API_URL}/jobs/${id}/`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

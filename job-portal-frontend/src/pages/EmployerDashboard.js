@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+const API_URL = process.env.REACT_APP_API_URL;
+
+
 
 const EmployerDashboard = () => {
   const [jobs, setJobs] = useState([]);
@@ -19,7 +22,7 @@ const EmployerDashboard = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/jobs/?posted_by_me=true', {
+        const res = await fetch(`${API_URL}/jobs/?posted_by_me=true`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -51,7 +54,7 @@ const EmployerDashboard = () => {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:8000/api/jobs/', {
+      const res = await fetch(`${API_URL}/jobs/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const JobApplicants = () => {
   const { jobId } = useParams();
@@ -9,7 +10,7 @@ const JobApplicants = () => {
 
   const fetchApplicants = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/api/jobs/${jobId}/applicants/`, {
+      const res = await fetch(`${API_URL}/jobs/${jobId}/applicants/`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -26,7 +27,7 @@ const JobApplicants = () => {
 
   const updateStatus = async (applicationId, newStatus) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/applications/${applicationId}/update-status/`, {
+      const res = await fetch(`${API_URL}/applications/${applicationId}/update-status/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
